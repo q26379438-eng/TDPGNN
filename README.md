@@ -41,6 +41,8 @@ conda activate XXX
 
 # install dependencies
 pip install torch torchvision opencv-python pyyaml numpy
-
-## Dataset Preparation
+Dataset Preparation
 We conduct experiments on MS‑COCO Keypoints 2017 and CrowdPose.
+Please download datasets and organize files with the following structure:
+
+
