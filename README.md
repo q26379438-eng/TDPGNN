@@ -55,6 +55,30 @@ data/
 Modify the dataset root path in the corresponding yaml config files according to your local environment.
 
 ```
+## Training
+```bash
+First stage: feature distillation + skeleton‑aware pose distillation.
+#python train_pose.py --cfg xxx.yaml
+Total epochs: 210
+Stage‑2 IGP‑GCN Refinement
+Freeze the student backbone trained in Stage‑1, and only optimize the IGP‑GCN module with multi‑level progressive distillation supervision.
+#python train_pose.py --cfg xxx.yaml
+Training epochs: 30
+Initial learning rate: 1e‑3
 
+```
+## Inference
+```bash
+Single‑image inference with built‑in latency, FPS and memory profiling.
+# Ours (Two‑stage distillation + IGP‑GCN)
+python infer_pose.py \
+--cfg xxx.yaml \
+--weight xxx.pth \
+--img test.jpg
 
-
+# Baseline: SimCC HRNet‑W32
+python infer_pose.py \
+--cfg xxx.ymal \
+--weight xxx.pth \
+--img test.jpg
+```
