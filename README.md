@@ -22,7 +22,6 @@ Official PyTorch implementation for our two‑stage coarse‑to‑fine human pos
 ## 📋 Table of Contents
 - [Environment](#environment)
 - [Dataset Preparation](#dataset-preparation)
-- [Pretrained Weights](#pretrained-weights)
 - [Training](#training)
   - [Stage‑1 Distillation](#stage‑1-distillation)
   - [Stage‑2 IGP‑GCN Refinement](#stage‑2-igp-gcn-refinement)
@@ -45,5 +44,17 @@ pip install torch torchvision opencv-python pyyaml numpy
 ```
 ## Dataset Preparation
 ```bash
+We conduct experiments on MS‑COCO Keypoints 2017 and CrowdPose.
+Please download the datasets and organize them as follows:
+data/
+├── coco/
+│   ├── annotations/
+│   ├── train2017/
+│   └── val2017/
+└── crowdpose/
+Modify the dataset root path in the corresponding yaml config files according to your local environment.
+
+```
+
 
 
