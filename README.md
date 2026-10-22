@@ -56,12 +56,15 @@ Modify the dataset root path in the corresponding yaml config files according to
 
 ```
 ## Training
+
+### First stage: feature distillation + skeleton‑aware pose distillation.
 ```bash
-First stage: feature distillation + skeleton‑aware pose distillation.
-#python train_pose.py --cfg xxx.yaml
+python train_pose.py --cfg xxx.yaml
 Total epochs: 210
-Stage‑2 IGP‑GCN Refinement
+```
+### Stage‑2 IGP‑GCN Refinement
 Freeze the student backbone trained in Stage‑1, and only optimize the IGP‑GCN module with multi‑level progressive distillation supervision.
+```bash
 #python train_pose.py --cfg xxx.yaml
 Training epochs: 30
 Initial learning rate: 1e‑3
@@ -82,3 +85,35 @@ python infer_pose.py \
 --weight xxx.pth \
 --img test.jpg
 ```
+### Output
+- `xxx.jpg` — visualized pose skeleton image
+- `xxx.json` — predicted 17 keypoint coordinates
+### Profiling Metrics
+- **Inference Latency (ms)**: Pure model forward pass only. Excludes image IO, preprocessing, postprocessing and visualization. 
+- **End‑to‑end Runtime (ms)**: Full pipeline from image reading to result saving.
+- **Peak GPU Memory (MB)**: Peak allocated memory occupied by model weights and intermediate feature maps.
+## Evaluation
+Evaluate on COCO val2017 or CrowdPose test set:
+```bash
+python xxx.py --cfg xxx.yaml --weight xxx.pth
+```
+## Main Results
+
+| Method | Backbone | Input Size | Params (M) | GFLOPs | COCO val2017 AP (%) | CrowdPose‑test AP (%) |
+|:-------|:---------|:-----------|:-----------|:-------|:--------------------|:----------------------|
+| SimCC  | HRNet‑W32 | 256×192 | 28.5 | 7.8 | 75.3 | 66.7 |
+| Ours   | HRNet‑W32 | 256×192 | 31.0 | 8.1 | **76.2** | **68.7** |
+
+> More detailed metrics and ablation studies are provided in our paper.
+## Citation
+If you find this work useful in your research, please cite:
+@article{ji2025coarsetofine,
+  title   = {A Coarse-to-Fine Human Pose Estimation Method based on Two-stage Distillation and Progressive Graph Neural Network},
+  author  = {Ji, Zhangjian and Zhang, Wenjin and Qiao, Shaotong and Feng, Kai and Qian, Yuhua},
+  journal = {arXiv preprint arXiv:2508.11212},
+  year    = {2025}
+}
+## Acknowledgement
+This code is built upon SimCC. We thank the authors for their excellent open‑source implementation.
+## License
+This project is released under the MIT License. See LICENSE for details.
