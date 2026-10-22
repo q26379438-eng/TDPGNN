@@ -1,6 +1,6 @@
 # A Coarse‑to‑Fine Human Pose Estimation Method based on Two‑stage Distillation and Progressive Graph Neural Network
 
-[![arXiv](https://img.shields.io/badge/arXiv-2508.11212-b31b1b.svg)](https://arxiv.org/abs/2508.11212)
+[![arXiv](<img width="620" height="323" alt="image" src="https://github.com/user-attachments/assets/a4cd4652-c30b-45ba-9f3a-9ff6e6f03733" />)(https://arxiv.org/abs/2508.11212v1)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Official PyTorch implementation for our two‑stage coarse‑to‑fine human pose estimation framework.
