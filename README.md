@@ -6,8 +6,9 @@
 Official PyTorch implementation for our two‑stage coarse‑to‑fine human pose estimation framework.
 
 <p align="center">
-<img src="./images/pipeline.png" width="920"/>
+<img src="https://github.com/user-attachments/assets/8390410d-f28a-46ee-98a2-3dadabbcdb17" width="920"/>
 </p>
+<p align="center"><b>Figure 1:</b> Overview of our two‑stage coarse‑to‑fine pose estimation framework.</p>
 <p align="center"><b>Figure 1:</b> Overview of our two-stage coarse-to-fine pose estimation framework.</p>
 
 > This work introduces a two‑stage knowledge distillation framework for human pose estimation. We combine skeleton‑aware distillation loss and Image‑Guided Progressive Graph Convolutional Network (IGP‑GCN) to fully exploit human joint structural priors, achieving notable performance gains especially under crowded and occlusion scenarios.
