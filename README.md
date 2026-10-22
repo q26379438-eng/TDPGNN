@@ -36,8 +36,8 @@ Official PyTorch implementation for our two‑stage coarse‑to‑fine human pos
 ## Environment
 ```bash
 # create conda environment
-conda create -n pose_env python=3.8
-conda activate pose_env
+conda create -n XXX python=3.8
+conda activate XXX
 
 # install dependencies
 pip install torch torchvision opencv-python pyyaml numpy
